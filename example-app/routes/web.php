@@ -23,3 +23,5 @@ Route::get('/welcome', [HomeController::class, 'welcome']);
 
 // localhost/contact
 Route::get('/contact', [ContactController::class, 'contact']);
+
+Route::get('/succes', [ContactController::class, 'succes']);

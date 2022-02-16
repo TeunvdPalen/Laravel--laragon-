@@ -9,4 +9,8 @@ class ContactController extends Controller
     public function contact() {
         return view('contact');
     }
+
+    public function succes() {
+        return view('succes');
+    }
 }

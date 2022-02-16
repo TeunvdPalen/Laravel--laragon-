@@ -1,7 +1,11 @@
 <h1>Home</h1>
 
-<nav>
-	<a href="/">Home</a>
-	<a href="/welcome">Welcome</a>
-	<a href="/contact">Contact</a>
-</nav>
+@if($logged_in)
+<p>
+	{{ $greeting }} {{ $name }}
+</p>
+@else
+<p>You are not logged in.</p>
+@endif
+
+@include('shared.nav')
