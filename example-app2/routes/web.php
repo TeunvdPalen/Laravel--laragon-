@@ -26,3 +26,5 @@ Route::get('/admin', [AdminController::class, 'admin']);
 Route::get('/admin/contact-berichten', [AdminController::class, 'contactBerichten']);
 Route::get('/admin/nieuws-berichten', [AdminController::class, 'nieuwsBerichten']);
 Route::get('/admin/privacy', [AdminController::class, 'privacy']);
+
+Route::post('/contact', [ContactController::class, 'verzenden']);
