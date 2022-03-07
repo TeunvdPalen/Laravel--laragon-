@@ -58,3 +58,12 @@ nav > a {
 	grid-template-columns: 1fr 1fr;
 	gap: 1rem;
 }
+
+.review{
+	padding: 1rem;
+
+}
+
+.error {
+	color: red;
+}

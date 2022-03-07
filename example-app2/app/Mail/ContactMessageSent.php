@@ -30,6 +30,9 @@ class ContactMessageSent extends Mailable
      */
     public function build()
     {
-        return $this->view('emails/contact-message-sent');
+        return $this
+            ->replyTo($this->data['email'])
+            ->subject('Mail oefening')
+            ->view('emails/contact-message-sent');
     }
 }

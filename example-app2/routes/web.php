@@ -28,3 +28,6 @@ Route::get('/admin/nieuws-berichten', [AdminController::class, 'nieuwsBerichten'
 Route::get('/admin/privacy', [AdminController::class, 'privacy']);
 
 Route::post('/contact', [ContactController::class, 'verzenden']);
+
+Route::get('/review', [ContactController::class, 'review']);
+Route::post('/review', [ContactController::class, 'review_verzenden']);

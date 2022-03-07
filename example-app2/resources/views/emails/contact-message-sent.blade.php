@@ -7,9 +7,9 @@
 	<title>Document</title>
 </head>
 <body>
-		<h1>Bericht van {{ $data['naam'] }} is verzonden</h1>
-		<p>E-mailadres: {{ $data['email'] }}</p>
-		<hr>
-		{{ $data['bericht'] }}
+	<h1>Bericht van {{ $data['naam'] }} is verzonden</h1>
+	<p>E-mailadres: {{ $data['email'] }}</p>
+	<hr>
+	{{ $data['bericht'] }}
 </body>
 </html>
