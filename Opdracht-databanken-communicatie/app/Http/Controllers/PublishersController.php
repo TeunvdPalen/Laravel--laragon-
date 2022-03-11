@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Publisher;
 use Illuminate\Http\Request;
 
 class PublishersController extends Controller
@@ -13,7 +14,10 @@ class PublishersController extends Controller
      */
     public function index()
     {
-        return view('publishers.index');
+        $publisher = Publisher::all();
+        return view('publishers.index', [
+            'publisher' => $publisher,
+        ]);
     }
 
     /**
@@ -23,7 +27,10 @@ class PublishersController extends Controller
      */
     public function create()
     {
-        return view('publishers.create');
+        $publisher = new Publisher();
+        return view('publishers.create', [
+            'publisher' => $publisher,
+        ]);
     }
 
     /**
@@ -34,7 +41,15 @@ class PublishersController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'name' => 'required',
+        ]);
+
+        $publisher = new Publisher();
+        $publisher->name = $request->name;
+        $publisher->save();
+
+        return redirect('/publishers');
     }
 
     /**

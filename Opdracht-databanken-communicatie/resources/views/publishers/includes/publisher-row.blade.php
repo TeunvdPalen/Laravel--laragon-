@@ -1,6 +1,6 @@
 <tr class="even:bg-gray-100 odd:bg-gray-200">
     <td class="p-2 text-lg flex flex-col">
-        <a href="{{ route('publishers.show', 1) }}" class="hover:underline">Kojami Productions</a>
+        <a href="{{ route('publishers.show', 1) }}" class="hover:underline">{{ 'publisher' => $publisher }}</a>
         <span class="text-gray-500 text-sm">5 games</span>
     </td>
     <td class="p-2">

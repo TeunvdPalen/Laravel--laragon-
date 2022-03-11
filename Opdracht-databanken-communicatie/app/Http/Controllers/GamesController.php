@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Game;
 use Illuminate\Http\Request;
 
 class GamesController extends Controller
@@ -13,7 +14,10 @@ class GamesController extends Controller
      */
     public function index()
     {
-        return view('games.index');
+        $game = Game::all();
+        return view('games.index', [
+            'game' => $game,
+        ]);
     }
 
     /**
@@ -23,7 +27,10 @@ class GamesController extends Controller
      */
     public function create()
     {
-        return view('games.create');
+        $game = new Game();
+        return view('games.create', [
+            'game' => $game,
+        ]);
     }
 
     /**
@@ -34,7 +41,18 @@ class GamesController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'name' => 'required',
+            'publisher' => 'required',
+        ]);
+
+        $game = new Game();
+        $game->name = $request->name;
+        $game->publisher = $request->publisher;
+        $game->completed = $request->completed;
+        $game->save();
+
+        return redirect('/games');
     }
 
     /**
