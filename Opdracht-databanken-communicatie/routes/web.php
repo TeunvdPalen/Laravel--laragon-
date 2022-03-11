@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\GamesController;
+use App\Http\Controllers\PublishersController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +15,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+
+Route::get('games/{game}/delete', [GamesController::class, 'delete'])->name('games.delete');
+Route::get('publishers/{publisher}/delete', [PublishersController::class, 'delete'])->name('publishers.delete');
+Route::resources([
+    'games' => GamesController::class,
+    'publishers' => PublishersController::class,
+]);
+
+Route::redirect('/', route('games.index'));
