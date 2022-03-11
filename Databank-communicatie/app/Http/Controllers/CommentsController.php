@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Comment;
 use Illuminate\Http\Request;
 
 class CommentsController extends Controller
@@ -14,6 +15,19 @@ class CommentsController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'name'=>'required',
+            'content'=>'required',
+            'post_id'=>'required',
+        ]);
+
+        $comment = new Comment();
+        $comment->name = $request->name;
+        $comment->content = $request->content;
+        $comment->post_id = $request->post_id;
+        $comment->save();
+
+        return redirect('/posts/'.$comment->post_id);
     }
 
     /**
@@ -22,9 +36,9 @@ class CommentsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit()
+    public function edit(Comment $comment)
     {
-        return view('comments.edit');
+        return view('comments.edit', ['comment' => $comment]);
     }
 
     /**
@@ -34,9 +48,18 @@ class CommentsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request)
+    public function update(Request $request, Comment $comment)
     {
-        //
+        $request->validate([
+            'name' => 'required',
+            'content' => 'required',
+        ]);
+
+        $comment->content = $request->content;
+        $comment->name = $request->name;
+        $comment->save();
+
+        return redirect()->route('posts.show', $comment->post);
     }
 
     /**
@@ -45,8 +68,10 @@ class CommentsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy()
+    public function destroy(Comment $comment)
     {
-        //
+        $post_id = $comment->post_id;
+        $comment->delete();
+        return redirect('/posts/'.$post_id);
     }
 }

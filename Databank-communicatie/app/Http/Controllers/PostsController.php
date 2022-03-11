@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Post;
+use App\Models\Comment;
 use Illuminate\Http\Request;
 
 class PostsController extends Controller
@@ -67,7 +68,8 @@ class PostsController extends Controller
     public function show(Post $post)
     {
         return view('posts.show', [
-            'post' => $post
+            'post' => $post,
+            'comment' => new Comment(),
         ]);
     }
 

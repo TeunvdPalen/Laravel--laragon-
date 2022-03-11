@@ -10,7 +10,8 @@
             <a href="/posts/id">Back to post</a>
         </p>
 
-        <form action="/comments/id" method="post">
+        <form action="{{ route('comments.update', $comment) }}" method="post">
+            @method('put')
             @include('comments.includes.form', ['buttonText' => "Update"])
         </form>
     </section>

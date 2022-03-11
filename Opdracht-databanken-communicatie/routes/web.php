@@ -1,7 +1,5 @@
 <?php
 
-use App\Http\Controllers\CommentsController;
-use App\Http\Controllers\PostsController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,9 +13,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::redirect('/', '/posts');
-
-Route::get('/posts/{post}/delete', [PostsController::class, 'delete']);
-Route::resource('/posts', PostsController::class);
-
-Route::resource('/comments', CommentsController::class)->except (['index', 'show', 'create']);
+Route::get('/', function () {
+    return view('welcome');
+});

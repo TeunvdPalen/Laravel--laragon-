@@ -1,7 +1,14 @@
 <blockquote class="comment">
-    <q class="comment-content">Comment content. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Et quo delectus magnam, fuga nostrum amet quam, rem quia praesentium, tempore dolores. Libero aliquam molestias magnam atque optio. Error, culpa iure!</q>
-    <cite class="comment-cite">John Doe</cite>
+    <q class="comment-content">
+        {{ $comment->content }}
+    </q>
+    <cite class="comment-cite">{{ $comment->name }}</cite>
     <div class="comment-actions">
-        <a href="/comments/id/edit">edit</a> or delete
+        <a href="/comments/{{ $comment->id }}/edit">edit</a> or
+        <form action="/comments/{{ $comment->id }}" method="post">
+            @csrf 
+            @method('delete')
+            <input type="submit" value="delete">
+        </form>
     </div>
 </blockquote>
