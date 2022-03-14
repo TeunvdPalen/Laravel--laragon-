@@ -3,8 +3,7 @@
         <th class="p-2">Publisher</th>
         <th class="p-2">Actions</th>
     </tr>
-    @include('publishers.includes.publisher-row')
-    @include('publishers.includes.publisher-row')
-    @include('publishers.includes.publisher-row')
-    @include('publishers.includes.publisher-row')
+    @foreach ($publishers as $publisher)
+        @include('publishers.includes.publisher-row', ['publisher' => $publisher])
+    @endforeach
 </table>

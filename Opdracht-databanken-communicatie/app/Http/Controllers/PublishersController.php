@@ -14,9 +14,9 @@ class PublishersController extends Controller
      */
     public function index()
     {
-        $publisher = Publisher::all();
+        $publishers = Publisher::all();
         return view('publishers.index', [
-            'publisher' => $publisher,
+            'publishers' => $publishers,
         ]);
     }
 
@@ -42,14 +42,14 @@ class PublishersController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'name' => 'required',
+            'name' => ['required','unique:App\Models\Publisher,name'],
         ]);
 
         $publisher = new Publisher();
         $publisher->name = $request->name;
         $publisher->save();
 
-        return redirect('/publishers');
+        return redirect('/publishers/');
     }
 
     /**
@@ -60,7 +60,10 @@ class PublishersController extends Controller
      */
     public function show($id)
     {
-        return view('publishers.show');
+        $publisher = Publisher::find($id);
+        return view('publishers.show', [
+            'publisher' => $publisher,
+        ]);
     }
 
     /**
@@ -71,7 +74,10 @@ class PublishersController extends Controller
      */
     public function edit($id)
     {
-        return view('publishers.edit');
+        $publisher = Publisher::find($id);
+        return view('publishers.edit', [
+            'publisher' => $publisher,
+        ]);
     }
 
     /**
@@ -83,7 +89,16 @@ class PublishersController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+
+        $request->validate([
+            'name' => ['required','unique:App\Models\Publisher,name'],
+        ]);
+
+        $publisher = Publisher::find($id);
+        $publisher->name = $request->name;
+        $publisher->save();
+
+        return redirect('/publishers/');
     }
 
     /**
@@ -94,7 +109,10 @@ class PublishersController extends Controller
      */
     public function delete($id)
     {
-        return view('publishers.delete');
+        $publisher = Publisher::find($id);
+        return view('publishers.delete', [
+            'publisher' => $publisher,
+        ]);
     }
 
     /**
@@ -105,6 +123,8 @@ class PublishersController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $publisher = Publisher::find($id);
+        $publisher->delete();
+        return redirect('/publishers/');
     }
 }
