@@ -8,8 +8,9 @@
 
     <h2 class="text-4xl font-semibold mb-4">Delete game</h2>
 
-    <form class="bg-gray-100 shadow-2xl p-4 rounded-lg" action="{{ route('games.destroy', 1) }}" method="post">
+    <form class="bg-gray-100 shadow-2xl p-4 rounded-lg" action="{{ route('games.destroy', $game->id) }}" method="post">
         @csrf
+        @method ('delete')
         <p class="text-2xl mb-4">Are you sure?</p>
 
         <div class="flex gap-8 items-center">
