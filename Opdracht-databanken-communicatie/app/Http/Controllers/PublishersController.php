@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Game;
 use App\Models\Publisher;
 use Illuminate\Http\Request;
 
@@ -63,6 +64,7 @@ class PublishersController extends Controller
         $publisher = Publisher::find($id);
         return view('publishers.show', [
             'publisher' => $publisher,
+            'games' => Game::all(),
         ]);
     }
 

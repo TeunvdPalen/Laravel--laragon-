@@ -6,7 +6,7 @@
 
     @include('publishers.includes.back-to-list')
 
-    <h2 class="text-4xl font-semibold mb-4">Publisher title</h2>
+    <h2 class="text-4xl font-semibold mb-4">{{ $publisher->name }}</h2>
 
     <div class="my-4">
         @include('publishers.includes.actions')
