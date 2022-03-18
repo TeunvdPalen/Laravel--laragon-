@@ -5,7 +5,7 @@
         <th class="p-2">Publisher</th>
         <th class="p-2">Actions</th>
     </tr>
-    @foreach ($games as $game)
-        @include('games.includes.game-row', ['game' => $game])
-    @endforeach
-</table>
+        @foreach ($games as $game)
+            @include('games.includes.game-row', ['game' => $game])
+        @endforeach
+    </table>

@@ -45,7 +45,7 @@ class GamesController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'name' => 'required',
+            'name' => ['required', 'unique:App\Models\Game,name'],
             'publisher_id' => 'required',
         ]);
 
@@ -69,7 +69,7 @@ class GamesController extends Controller
         $game = Game::find($id);
         return view('games.show', [
             'game' => $game,
-            'games' => Game::all(),
+            'games' => Game::where('publisher_id', $game->publisher->id)->whereNot('id', $id)->get(),
         ]);
     }
 
@@ -135,6 +135,21 @@ class GamesController extends Controller
     {
         $game = Game::find($id);
         $game->delete();
+        return redirect('/games');
+    }
+
+    /**
+     * Mark as completed the specified resource from storage.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function completed($id)
+    {
+        $game = Game::find($id);
+        $game->completed = true;
+        $game->save();
+
         return redirect('/games');
     }
 }

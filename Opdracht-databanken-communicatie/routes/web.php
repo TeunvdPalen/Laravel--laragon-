@@ -18,6 +18,7 @@ use App\Http\Controllers\PublishersController;
 
 Route::get('games/{game}/delete', [GamesController::class, 'delete'])->name('games.delete');
 Route::get('publishers/{publisher}/delete', [PublishersController::class, 'delete'])->name('publishers.delete');
+Route::get('games/{game}/completed', [GamesController::class, 'completed'])->name('games.completed');
 Route::resources([
     'games' => GamesController::class,
     'publishers' => PublishersController::class,

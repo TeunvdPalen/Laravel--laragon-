@@ -64,7 +64,7 @@ class PublishersController extends Controller
         $publisher = Publisher::find($id);
         return view('publishers.show', [
             'publisher' => $publisher,
-            'games' => Game::all(),
+            'games' => Game::where('publisher_id', $publisher->id)->get(),
         ]);
     }
 
