@@ -9,7 +9,7 @@
             Name: {{ $user->name }}
         </p>
 
-        <h3>My recect posts</h3>
+        <h3>My recent posts</h3>
         <div class="posts-list">
             @forelse ($posts as $post)
                 @include('posts.includes.post-small', ['post' => $post])

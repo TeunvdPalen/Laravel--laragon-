@@ -22,11 +22,11 @@ Route::redirect('/', '/posts');
 Route::resource('/posts', PostsController::class);
 Route::resource('/comments', CommentsController::class)->except(['index', 'show']);
 
-Route::get('/profile', [UsersController::class, 'profile'])->name('users.profile');
-Route::get('/profile/{user:username}', [UsersController::class, 'show'])->name('users.show');
+Route::get('/profile', [UsersController::class, 'profile'])->name('users.profile')->middleware('auth');
+Route::get('/profile/{user:username}', [UsersController::class, 'show'])->name('users.show')->middleware('auth');
 
-Route::get('/login', [AuthController::class, 'login'])->name('login.get');
-Route::post('/login', [AuthController::class, 'handleLogin'])->name('login.post');
-Route::get('/register', [AuthController::class, 'register'])->name('register.get');
-Route::post('/register', [AuthController::class, 'handleRegister'])->name('register.post');
-Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
+Route::get('/login', [AuthController::class, 'login'])->name('login.get')->middleware('guest');
+Route::post('/login', [AuthController::class, 'handleLogin'])->name('login.post')->middleware('guest');
+Route::get('/register', [AuthController::class, 'register'])->name('register.get')->middleware('guest');
+Route::post('/register', [AuthController::class, 'handleRegister'])->name('register.post')->middleware('guest');
+Route::get('/logout', [AuthController::class, 'logout'])->name('logout')->middleware('auth');

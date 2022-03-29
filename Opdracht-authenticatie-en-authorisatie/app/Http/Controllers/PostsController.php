@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Comment;
 use App\Models\Post;
+use App\Models\Comment;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class PostsController extends Controller
 {
@@ -57,6 +58,7 @@ class PostsController extends Controller
         $post->published = $request->has('published');
         $post->status = $request->status;
         $post->content = $request->content;
+        $post->user_id = Auth::id();
         $post->save();
 
         return redirect()->route('posts.show', $post);
