@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Comment;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Gate;
 
 class CommentsController extends Controller
 {
@@ -37,6 +38,9 @@ class CommentsController extends Controller
      */
     public function edit(Comment $comment)
     {
+        if (!Gate::allows('update-comment', $comment)) {
+            abort(403);
+        }
         return view('comments.edit', ['comment' => $comment]);
     }
 
@@ -49,6 +53,9 @@ class CommentsController extends Controller
      */
     public function update(Request $request, Comment $comment)
     {
+        if (!Gate::allows('update-comment', $comment)) {
+            abort(403);
+        }
         $request->validate([
             'content' => 'required'
         ]);
@@ -67,6 +74,9 @@ class CommentsController extends Controller
      */
     public function destroy(Comment $comment)
     {
+        if (!Gate::allows('update-comment', $comment)) {
+            abort(403);
+        }
         $post = $comment->post;
         $comment->delete();
         return redirect()->route('posts.show', $post);

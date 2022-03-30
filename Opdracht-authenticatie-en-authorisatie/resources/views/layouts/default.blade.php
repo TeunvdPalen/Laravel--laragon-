@@ -16,8 +16,13 @@
                 <a href="/">Home</a>
                 <a href="{{ route('posts.create') }}">Add new post</a>
                 <a href="{{ route('users.profile') }}">My profile</a>
+                @guest
                 <a href="{{ route('login.get') }}">Login</a>
                 <a href="{{ route('register.get') }}">Register</a>
+                @endguest
+                @auth
+                <a href="{{ route('logout') }}">Logout</a>
+                @endauth
             </nav>
         </header>
 

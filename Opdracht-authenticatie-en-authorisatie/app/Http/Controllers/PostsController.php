@@ -7,9 +7,14 @@ use App\Models\Comment;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Gate;
 
 class PostsController extends Controller
 {
+    public function __construct()
+    { 
+        $this->middleware('auth', ['except' => ['index']]);
+    }
     /**
      * Display a listing of the resource.
      *
@@ -86,6 +91,9 @@ class PostsController extends Controller
      */
     public function edit(Post $post)
     {
+        if (!Gate::allows('update-post', $post)) {
+            abort(403);
+        }
         return view('posts.edit', [
             'post' => $post,
         ]);
@@ -100,6 +108,9 @@ class PostsController extends Controller
      */
     public function update(Request $request, Post $post)
     {
+        if (!Gate::allows('update-post', $post)) {
+            abort(403);
+        }
         $request->validate([
             'title' => 'required',
             'status' => 'in:draft,final',
@@ -126,6 +137,9 @@ class PostsController extends Controller
      */
     public function destroy(Post $post)
     {
+        if (!Gate::allows('update-post', $post)) {
+            abort(403);
+        }
         $post->delete();
         return redirect()->route('posts.index');
     }
