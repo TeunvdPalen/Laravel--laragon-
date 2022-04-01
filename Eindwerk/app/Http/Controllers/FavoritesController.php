@@ -16,7 +16,7 @@ class FavoritesController extends Controller
     public function toggleFavorite(Product $product) {
         // Toggle het product id op de "favorites" relatie van de ingelogde user.
         // https://laravel.com/docs/9.x/eloquent-relationships#toggling-associations
-
+        $product->roles()->toggle([1,2,3]);
         return back();
     }
 }

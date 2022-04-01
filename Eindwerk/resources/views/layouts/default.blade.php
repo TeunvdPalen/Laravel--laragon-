@@ -10,7 +10,10 @@
 </head>
 <body class="h-full flex flex-col">
 
-    @include('layouts.includes.user-menu')
+    @auth
+        @include('layouts.includes.user-menu')
+    @endauth
+
 
     @include('layouts.includes.header')
 

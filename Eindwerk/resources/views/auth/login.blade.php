@@ -15,7 +15,9 @@
                 <div class="flex flex-col">
                     <label class="text-gray-500" for="voornaam">E-mailadres: *</label>
                     <input name="email" value="" type="email" class="bg-white border border-gray-500 px-4 py-2">
-                    <p class="text-red-500">Dit is een foutmelding.</p>
+                    @error('email')
+											<p class="text-red-500">{{ $message }}</p>
+										@enderror
                 </div>
 
                 <div class="flex flex-col">
