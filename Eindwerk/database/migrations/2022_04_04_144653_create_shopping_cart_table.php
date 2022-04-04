@@ -13,10 +13,12 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('favorites', function (Blueprint $table) {
-            $table->bigInteger('user_id');
-            $table->bigInteger('product_id');
+        Schema::create('shopping_cart', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('user_id');
+            $table->foreignId('product_id');
+            $table->integer('quantity');
+            $table->integer('size');
             $table->timestamps();
         });
     }
@@ -28,6 +30,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('favorites');
+        Schema::dropIfExists('shopping_cart');
     }
 };
