@@ -13,12 +13,19 @@ class User extends Authenticatable
     use HasApiTokens, HasFactory, Notifiable;
 
 
-    public function favorites() {
+    public function favorites()
+    {
         return $this->belongsToMany(Product::class, 'favorites');
     }
 
-    public function cart() {
-        return $this->belongsToMany(Product::class, 'shopping_cart');
+    public function cart()
+    {
+        return $this->belongsToMany(Product::class, 'shopping_cart')->withPivot('quantity', 'size');
+    }
+
+    public function orders()
+    {
+        return $this->hasMany(Order::class, 'order_product');
     }
     /**
      * The attributes that are mass assignable.

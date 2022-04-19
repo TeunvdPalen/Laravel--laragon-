@@ -24,6 +24,7 @@ Route::get('/', [StoreController::class, 'index'])->name('products.index');
 Route::get('/product/{product}', [StoreController::class, 'show'])->name('products.show');
 
 Route::get('/brands/{brand}', [BrandsController::class, 'show'])->name('brands.show');
+Route::get('/brands', [BrandsController::class, 'index'])->name('brands.index');
 
 Route::get('/cart', [ShoppingCartController::class, 'index'])->name('cart')->middleware('auth');
 Route::post('/cart/{product}', [ShoppingCartController::class, 'add'])->name('cart.add')->middleware('auth');

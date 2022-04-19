@@ -9,34 +9,38 @@ use Illuminate\Support\Facades\Hash;
 
 class AuthController extends Controller
 {
-    public function login() {
+    public function login()
+    {
         return view('auth.login');
     }
 
-    public function handleLogin(Request $request) {
+    public function handleLogin(Request $request)
+    {
         // Valideer het formulier
         // Elk veld is verplicht
         $request->validate([
-            'email'=>'required',
-            'password'=>'required'
+            'email' => 'required|email',
+            'password' => 'required'
         ]);
 
         // Schrijf de aanmeld logica om in te loggen.
         if (Auth::attempt(['email' => $request->email, 'password' => $request->password])) {
             // Als je ingelogd bent stuur je de bezoeker door naar de intented "profile" route (zie hieronder)
-        return redirect()->intended(route('profile'));
+            return redirect()->intended(route('profile'));
         }
-        
+
         // Als je gegevens fout zijn stuur je terug naar het formulier met
         // een melding voor het email veld dat de gegevens niet correct zijn.
         return back()->withErrors(['Inlog gegevens zijn onbekend']);
     }
 
-    public function register() {
+    public function register()
+    {
         return view('auth.register');
     }
 
-    public function handleRegister(Request $request) {
+    public function handleRegister(Request $request)
+    {
         // Valideer het formulier.
         // Elk veld is verplicht / Wachtwoord en confirmatie moeten overeen komen / Email adres moet uniek zijn
         // Bewaar een nieuwe gebruiker in de databank met een beveiligd wachtwoord.
@@ -57,7 +61,8 @@ class AuthController extends Controller
         return redirect()->route('login');
     }
 
-    public function logout() {
+    public function logout()
+    {
         // Gebruiker moet uitloggen
         Auth::logout();
         return back();

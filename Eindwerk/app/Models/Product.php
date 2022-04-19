@@ -17,11 +17,18 @@ class Product extends Model
         'available_sizes' => 'array',
     ];
 
-    public function brand() {
+    public function brand()
+    {
         return $this->belongsTo(Brand::class);
     }
 
-    public function users() {
+    public function users()
+    {
         return $this->belongsToMany(User::class);
+    }
+
+    public function orders()
+    {
+        return $this->belongsToMany(Order::class);
     }
 }
