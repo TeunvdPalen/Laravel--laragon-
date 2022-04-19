@@ -6,6 +6,7 @@ use App\Models\Order;
 use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Gate;
 
 class OrdersController extends Controller
 {
@@ -89,13 +90,19 @@ class OrdersController extends Controller
     }
 
     public function show($id)
-    { // Order $order
+    {
+        // Order $order
         // Beveilig het order met een GATE zodat je enkel jouw eigen orders kunt bekijken.
 
         // In de URL wordt het id van een order verstuurd. Zoek het order uit de url op.
         // Zoek de bijbehorende producten van het order hieronder op.
         $user = Auth::user();
         $order = Order::find($id);
+
+        if (!Gate::allows('order_show', $order)) {
+            abort(403);
+        }
+
         $products = $order->products()->get();
 
         // Geef de juiste data door aan de view
