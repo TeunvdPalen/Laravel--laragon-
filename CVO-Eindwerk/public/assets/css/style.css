@@ -1,0 +1,87 @@
+:root {
+    --black: #252525;
+    --yellow: #f4f670;
+}
+
+body {
+    margin: 0;
+    font-size: 18px;
+}
+
+.container {
+}
+
+a {
+    text-decoration: none;
+    color: var(--black);
+}
+
+a:active {
+    text-decoration: none;
+}
+
+/* General */
+.img-scale img {
+    width: 100%;
+}
+/* End General */
+
+/* Header */
+.logo {
+    margin: 0 1rem;
+}
+
+.login {
+    font-size: 30px;
+    font-weight: bold;
+    margin: 1rem 2rem;
+    background-color: var(--yellow);
+    padding: 1rem 1.5rem;
+    border-radius: 15px;
+}
+
+.header-1 {
+    margin: 1rem 0;
+}
+.header-2 {
+    margin: 1rem 0 0.5rem;
+    font-size: 34px;
+    font-weight: bold;
+}
+
+/* End Header */
+
+/* Subheader */
+.subheader {
+    padding: 1rem 0.5rem;
+    background-color: var(--yellow);
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+.subheader-nav a {
+    font-size: 28px;
+    font-weight: bold;
+    text-transform: capitalize;
+}
+/* End Subheader */
+
+/* Footer */
+footer {
+    background-color: var(--black);
+    margin-top: 3rem;
+    padding: 3rem 0;
+    color: var(--yellow);
+}
+
+.link-footer {
+    color: var(--yellow);
+    font-size: 1.8rem;
+    margin-left: 1rem;
+}
+
+.footer-contact {
+    justify-items: center;
+}
+
+/* End Footer */
