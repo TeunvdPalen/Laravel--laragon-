@@ -1,4 +1,4 @@
-<div class="subheader">
+<div class="subheader @yield('hidden')">
 	<div class="container">
 		<nav class="subheader-nav flex">
 			<a href="@yield('nav1-link')">@yield('nav1')</a>

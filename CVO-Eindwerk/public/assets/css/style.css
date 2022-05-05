@@ -1,15 +1,30 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap');
 :root {
     --black: #252525;
     --yellow: #f4f670;
+    --dark-yellow: #a0a148;
     --error: #db3838;
 }
 
 body {
     margin: 0;
+    font-family: 'Montserrat', sans-serif;
     font-size: 18px;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 
 .container {
+}
+
+/* General */
+h1 {
+    font-size: 2.5rem;
+}
+
+h1:first-letter {
+    text-transform: capitalize;
 }
 
 a {
@@ -21,9 +36,22 @@ a:active {
     text-decoration: none;
 }
 
-/* General */
+
 .img-scale img {
     width: 100%;
+}
+
+.hidden {
+    display: none;
+}
+
+.home-nav {
+    position: relative;
+    width: 100%;
+}
+
+.home-nav-title {
+    position: absolute;
 }
 /* End General */
 
@@ -41,13 +69,71 @@ a:active {
     border-radius: 15px;
 }
 
+header {
+    border-bottom: 3px solid var(--black);
+}
+
+.active {
+    /* padding: 1rem 1rem 0; */
+    background-color: var(--yellow);
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+}
+
 .header-1 {
     margin: 1rem 0;
 }
+
 .header-2 {
-    margin: 1rem 0 0.5rem;
+    margin-top: 1rem;
     font-size: 34px;
     font-weight: bold;
+}
+
+.dropLink {
+    padding: 1rem 1rem 0;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+    margin: 0;
+    padding: 0;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: var(--yellow);
+    min-width: 160px;
+    box-shadow: 0px 16px 16px 8px rgba(0,0,0,0.2);
+    z-index: 1;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+}
+
+.dropdown-content a {
+    padding: 0.5rem;
+    display: block;
+}
+
+.dropdown-content a:last-child {
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+}
+
+.dropdown-content a:hover {
+    color: var(--yellow);
+    background-color: var(--black);
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropLink:hover {
+    text-decoration: underline;
+    text-decoration-color: var(--yellow);
 }
 
 /* End Header */

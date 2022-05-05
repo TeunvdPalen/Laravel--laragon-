@@ -12,13 +12,14 @@
 
 @section('content')
 	<div>
-		<h1>sportnieuws</h1>
+		<h1>Sportnieuws</h1>
 		<h2>Regionaal kampioen 2019</h2>
 		<p>
 			Hubert Dreesen is met Bizzii Regionaal Kampioen 2019 geworden.
 		</p>
 		<p>
-			Gedurende de vrienschappelijke wedstrijden in 2019, waar verschillende regionale hondenverenigingen aan meedoen, liep Hubert en Bizzii regelmatig in de top van zijn klasse. Dit leidde uiteindelijk tot kampioen.
+			Gedurende de vrienschappelijke wedstrijden in 2019, waar verschillende regionale hondenverenigingen aan meedoen, liep
+			Hubert en Bizzii regelmatig in de top van zijn klasse. Dit leidde uiteindelijk tot kampioen.
 		</p>
 		<p>
 			Van harte gefeliciteerd

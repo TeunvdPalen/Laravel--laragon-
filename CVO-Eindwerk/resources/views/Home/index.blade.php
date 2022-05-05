@@ -1,13 +1,15 @@
 @extends('layouts.default')
 
 @section('title', 'Home')
+@section('hidden', 'hidden')
 
 @section('content')
 	<div>
 		<h1>Hallo</h1>
 		<p>Welcome bij VVH</p>
 		<div class="row">
-			<div class="col-12 col-sm-6 col-md-4 col-lg-3">
+			<div class="col-12 col-sm-6 col-md-4 col-lg-3 home-nav flex-center">
+				<h1 class="home-nav-title">Nieuws</h1>
 				<a href="{{ route('nieuws') }}" class="img-scale"><img src="https://picsum.photos/300/300?random=1" alt=""></a>
 			</div>
 			<div class="col-12 col-sm-6 col-md-4 col-lg-3">

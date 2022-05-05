@@ -1,6 +1,7 @@
 @extends('layouts.default')
 
 @section('title', 'Inschrijven')
+@section('hidden', 'hidden')
 
 @section('content')
 	@guest
