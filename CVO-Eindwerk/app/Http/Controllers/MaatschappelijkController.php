@@ -10,4 +10,14 @@ class MaatschappelijkController extends Controller
     {
         return view('maatschappelijk.index');
     }
+
+    public function aaihonden()
+    {
+        return view('maatschappelijk.aaihonden');
+    }
+
+    public function verhalen()
+    {
+        return view('maatschappelijk.verhalen');
+    }
 }

@@ -14,9 +14,20 @@ class InschrijvenController extends Controller
     public function handleInschrijven(Request $request)
     {
         $request->validate([
-            'naam' => 'required',
-            'voornaam' => 'required',
+            'name' => 'required',
+            'firstName' => 'required',
             'email' => 'required|email|unique:users,email',
+            'phone' => 'required|numeric',
+            'street' => 'required',
+            'houseNumber' => 'requierd',
+            'city' => 'required',
+
+            'dogName' => 'required',
+            'dogSex' => 'required',
+            'dogBreed' => 'required',
+            'dogBirthday' => 'required',
+
+            'cursus' => 'required'
         ]);
 
         //$inschrijving = new Inschrijving();

@@ -33,17 +33,23 @@ Route::get('/lidmaatschap', [CursusController::class, 'lidmaatschap'])->name('li
 Route::get('/opvoeden', [CursusController::class, 'opvoeden'])->name('opvoeden');
 Route::get('/trainingsmiddelen', [CursusController::class, 'trainingsmiddelen'])->name('trainingsmiddelen');
 
-Route::get('/inschrijven', [InschrijvenController::class, 'index'])->name('inschrijven.index');
-Route::post('/inschrijven', [InschrijvenController::class, 'handleInschrijven'])->name('inschrijven.post');
+Route::get('/inschrijven', [InschrijvenController::class, 'index'])->name('inschrijven.index')->middleware('auth');
+Route::post('/inschrijven', [InschrijvenController::class, 'handleInschrijven'])->name('inschrijven.post')->middleware('auth');
 
 Route::get('/kalender', [KalenderController::class, 'index'])->name('kalender.index');
 
 Route::get('/hondensport', [HondensportController::class, 'index'])->name('hondensport.index');
+Route::get('/agility', [HondensportController::class, 'agility'])->name('agility');
+Route::get('/obedience', [HondensportController::class, 'obedience'])->name('obedience');
+Route::get('/recreanten', [HondensportController::class, 'recreanten'])->name('recreanten');
+Route::get('/sportnieuws', [HondensportController::class, 'sportnieuws'])->name('sportnieuws');
 
 Route::get('/maatschappelijk', [MaatschappelijkController::class, 'index'])->name('maatschappelijk.index');
+Route::get('/aaihonden', [MaatschappelijkController::class, 'aaihonden'])->name('aaihonden');
+Route::get('/verhalen', [MaatschappelijkController::class, 'verhalen'])->name('verhalen');
 
-Route::get('/login', [AuthController::class, 'login'])->name('login');
+Route::get('/login', [AuthController::class, 'login'])->name('login')->middleware('guest');
 Route::post('/login', [AuthController::class, 'handleLogin'])->name('login.post')->middleware('guest');
-Route::get('/aanmelden', [AuthController::class, 'aanmelden'])->name('aanmelden');
-Route::post('/aanmelden', [AuthController::class, 'handleAanmelden'])->name('aanmelden.post');
-Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
+Route::get('/aanmelden', [AuthController::class, 'aanmelden'])->name('aanmelden')->middleware('guest');
+Route::post('/aanmelden', [AuthController::class, 'handleAanmelden'])->name('aanmelden.post')->middleware('guest');
+Route::get('/logout', [AuthController::class, 'logout'])->name('logout')->middleware('auth');
