@@ -1,8 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap');
 :root {
     --black: #252525;
+    --black50: #25252586;
     --yellow: #f4f670;
-    --dark-yellow: #a0a148;
     --error: #db3838;
 }
 
@@ -15,7 +15,8 @@ body {
     flex-direction: column;
 }
 
-.container {
+.main-container {
+    padding-bottom: 3rem;
 }
 
 /* General */
@@ -39,6 +40,7 @@ a:active {
 
 .img-scale img {
     width: 100%;
+    height: 100%;
 }
 
 .hidden {
@@ -47,11 +49,24 @@ a:active {
 
 .home-nav {
     position: relative;
-    width: 100%;
+
+}
+
+.home-nav a img {
+    object-fit: cover;
+    border-radius: 25px;
 }
 
 .home-nav-title {
+    background-color: var(--black50);
+    padding: 1rem 1.3rem;
+    border-radius: 15px;
+    color: var(--yellow);
     position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    margin: 0;
 }
 /* End General */
 
@@ -154,7 +169,7 @@ header {
 /* Footer */
 footer {
     background-color: var(--black);
-    margin-top: 3rem;
+    margin-top: auto;
     padding: 3rem 0;
     color: var(--yellow);
 }

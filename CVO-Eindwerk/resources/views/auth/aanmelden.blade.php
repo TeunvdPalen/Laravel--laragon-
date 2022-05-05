@@ -1,6 +1,7 @@
 @extends('layouts.default')
 
 @section('title', 'Aanmelden')
+@section('hidden', 'hidden')
 
 @section('content')
 	<div>
@@ -57,8 +58,7 @@
 			</div>
 			<div>
 				<button type="submit" class="">Aanmelden</button>
-				<p>
-					of je kan hier <a href="{{ route('aanmelden') }}"><b>inloggen</b></a> als je al account hebt.
+				<p> of je kan hier <a href="{{ route('aanmelden') }}"><b>inloggen</b></a> als je al account hebt.
 				</p>
 			</div>
 		</form>

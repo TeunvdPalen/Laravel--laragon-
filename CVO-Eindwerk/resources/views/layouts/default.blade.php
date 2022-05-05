@@ -9,7 +9,7 @@
 
 	@include('layouts.includes.subheader')
 
-	<section class="container">
+	<section class="main-container container">
 		@yield('content')
 	</section>
 

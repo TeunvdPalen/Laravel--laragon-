@@ -7,7 +7,7 @@
 				<a href="#" class="link-footer"><i class="fa-solid fa-phone"></i></a>
 			</div>
 			<div class="col-4 img-scale">
-				<img src="/assets/images/vvhtxt.jpg" alt="" class="">
+				<img src="{{ asset('assets/images/vvhtxt-reverse.jpg') }}" alt="" class="">
 			</div>
 			<div class="col-4">
 				Socials:
