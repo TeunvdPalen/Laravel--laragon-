@@ -1,6 +1,7 @@
 :root {
     --black: #252525;
     --yellow: #f4f670;
+    --error: #db3838;
 }
 
 body {
@@ -55,8 +56,6 @@ a:active {
 .subheader {
     padding: 1rem 0.5rem;
     background-color: var(--yellow);
-    border-bottom-left-radius: 10px;
-    border-bottom-right-radius: 10px;
 }
 
 .subheader-nav a {
@@ -85,3 +84,8 @@ footer {
 }
 
 /* End Footer */
+
+/* Footer */
+.error {
+    color: var(--error);
+}

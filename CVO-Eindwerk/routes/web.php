@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\AlgemeenController;
+use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CursusController;
 use App\Http\Controllers\HondensportController;
 use App\Http\Controllers\InschrijvenController;
@@ -33,9 +34,16 @@ Route::get('/opvoeden', [CursusController::class, 'opvoeden'])->name('opvoeden')
 Route::get('/trainingsmiddelen', [CursusController::class, 'trainingsmiddelen'])->name('trainingsmiddelen');
 
 Route::get('/inschrijven', [InschrijvenController::class, 'index'])->name('inschrijven.index');
+Route::post('/inschrijven', [InschrijvenController::class, 'handleInschrijven'])->name('inschrijven.post');
 
 Route::get('/kalender', [KalenderController::class, 'index'])->name('kalender.index');
 
 Route::get('/hondensport', [HondensportController::class, 'index'])->name('hondensport.index');
 
 Route::get('/maatschappelijk', [MaatschappelijkController::class, 'index'])->name('maatschappelijk.index');
+
+Route::get('/login', [AuthController::class, 'login'])->name('login');
+Route::post('/login', [AuthController::class, 'handleLogin'])->name('login.post')->middleware('guest');
+Route::get('/aanmelden', [AuthController::class, 'aanmelden'])->name('aanmelden');
+Route::post('/aanmelden', [AuthController::class, 'handleAanmelden'])->name('aanmelden.post');
+Route::get('/logout', [AuthController::class, 'logout'])->name('logout');

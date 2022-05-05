@@ -2,16 +2,15 @@
 	<div class="container">
 		<div class="header-1 flex">
 			<div class="img-scale logo">
-				<img src="/assets/images/vvhtxt.jpg" alt="" class="">
+				<a href="{{ route('home.index') }}"><img src="/assets/images/vvhtxt.jpg" alt="" class=""></a>
 			</div>
 			<div class="login">
 				@guest
-					<a href="">Login</a> |
-					<a href="">Aanmelden</a>
+					<a href="{{ route('login') }}">Login</a> |
+					<a href="{{ route('aanmelden') }}">Aanmelden</a>
 				@endguest
 				@auth
-					<p>Welcome Naam | <a href="">Uitloggen</a></p>
-
+					<p>Welcome Naam | <a href="{{ route('logout') }}">Uitloggen</a></p>
 				@endauth
 			</div>
 		</div>

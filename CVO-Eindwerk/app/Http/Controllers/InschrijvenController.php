@@ -10,4 +10,17 @@ class InschrijvenController extends Controller
     {
         return view('inschrijven.index');
     }
+
+    public function handleInschrijven(Request $request)
+    {
+        $request->validate([
+            'naam' => 'required',
+            'voornaam' => 'required',
+            'email' => 'required|email|unique:users,email',
+        ]);
+
+        //$inschrijving = new Inschrijving();
+
+        return redirect()->route('login');
+    }
 }
