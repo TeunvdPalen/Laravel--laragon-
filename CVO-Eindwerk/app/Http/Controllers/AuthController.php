@@ -23,7 +23,7 @@ class AuthController extends Controller
         ]);
 
         if (Auth::attempt(['email' => $request->email, 'password' => $request->password])) {
-            return redirect()->intended(route('home.index'));
+            return redirect()->intended(route('profiel'));
         }
 
         return back()->withErrors(['Inlog gegevens zijn onbekend']);
@@ -41,13 +41,15 @@ class AuthController extends Controller
             'name' => 'required',
             'firstName' => 'required',
             'email' => 'required|email|unique:users,email',
-            'password' => 'required|confirmed'
+            'phone' => 'required|numeric',
+            'password' => 'required|confirmed',
         ]);
 
         $user = new User();
         $user->name = $request->name;
         $user->firstName = $request->firstName;
         $user->email = $request->email;
+        $user->phone = $request->phone;
         $user->password = Hash::make($request->password);
         $user->save();
 

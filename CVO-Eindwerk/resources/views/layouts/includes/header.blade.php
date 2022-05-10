@@ -11,7 +11,7 @@
 					<a href="{{ route('aanmelden') }}">Aanmelden</a>
 				@endguest
 				@auth
-					Welcome {{ Auth::user()->firstName }} <i class="fa-solid fa-user"></i> | <a
+					Welcome <a href="{{ route('profiel') }}">{{ Auth::user()->firstName }} <i class="fa-solid fa-user"></i></a> | <a
 						href="{{ route('logout') }}">Uitloggen</a>
 				@endauth
 			</div>
@@ -89,8 +89,60 @@
 
 
 			</nav>
-			<nav>
-
+			<nav class='nav-menu-burger'>
+				<ul class="nav-burger">
+					<li class="nav-burger-item">
+						<a href="{{ route('home.index') }}"
+							class="{{ Request::is('/') ? 'active-burger-item' : '' }} nav-burger-link">
+							Home
+						</a>
+					</li>
+					<li class="nav-burger-item">
+						<a href="{{ route('algemeen.index') }}"
+							class="{{ Request::is('/') ? 'active-burger-item' : '' }} nav-burger-link">
+							Algemeen
+						</a>
+					</li>
+					<li class="nav-burger-item"><a href="{{ route('cursus.index') }}"
+							class="{{ Request::is('/') ? 'active-burger-item' : '' }} nav-burger-link">
+							Cursus
+						</a></li>
+					<li class="nav-burger-item">
+						<a href="{{ route('inschrijven.index') }}"
+							class="{{ Request::is('/') ? 'active-burger-item' : '' }} nav-burger-link">
+							Inschrijven
+						</a>
+					</li>
+					<li class="nav-burger-item">
+						<a href="{{ route('kalender.index') }}"
+							class="{{ Request::is('/') ? 'active-burger-item' : '' }} nav-burger-link">
+							Kalender
+						</a>
+					</li>
+					<li class="nav-burger-item">
+						<a href="{{ route('hondensport.index') }}"
+							class="{{ Request::is('/') ? 'active-burger-item' : '' }} nav-burger-link">
+							Hondensport
+						</a>
+					</li>
+					<li class="nav-burger-item">
+						<a href="{{ route('maatschappelijk.index') }}"
+							class="{{ Request::is('/') ? 'active-burger-item' : '' }} nav-burger-link">
+							Maatschappelijk
+						</a>
+					</li>
+					<li class="burger-fill"></li>
+					<li class="nav-burger-item">
+						@guest
+							<a href="{{ route('login') }}" class="nav-burger-link">Login</a> |
+							<a href="{{ route('aanmelden') }}" class="nav-burger-link">Aanmelden</a>
+						@endguest
+						@auth
+							Welcome <a href="{{ route('profiel') }}" class="nav-burger-link">{{ Auth::user()->firstName }} <i
+									class="fa-solid fa-user"></i></a> | <a href="{{ route('logout') }}" class="nav-burger-link">Uitloggen</a>
+						@endauth
+					</li>
+				</ul>
 			</nav>
 		</div>
 	</div>

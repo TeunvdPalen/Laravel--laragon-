@@ -5,8 +5,7 @@
 
 @section('content')
 	<div>
-		<h1>Hallo</h1>
-		<p>Welcome bij VVH</p>
+		<h1 class="main-title">Welcome bij VVH</h1>
 		<div class="row">
 			<div class="col-12 col-sm-6 col-md-4 col-lg-3 home-nav">
 				<a href="{{ route('nieuws') }}">

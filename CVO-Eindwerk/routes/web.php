@@ -9,6 +9,7 @@ use App\Http\Controllers\HondensportController;
 use App\Http\Controllers\InschrijvenController;
 use App\Http\Controllers\KalenderController;
 use App\Http\Controllers\MaatschappelijkController;
+use App\Http\Controllers\ProfielController;
 
 /*
 |--------------------------------------------------------------------------
@@ -53,3 +54,12 @@ Route::post('/login', [AuthController::class, 'handleLogin'])->name('login.post'
 Route::get('/aanmelden', [AuthController::class, 'aanmelden'])->name('aanmelden')->middleware('guest');
 Route::post('/aanmelden', [AuthController::class, 'handleAanmelden'])->name('aanmelden.post')->middleware('guest');
 Route::get('/logout', [AuthController::class, 'logout'])->name('logout')->middleware('auth');
+
+Route::get('/profiel', [ProfielController::class, 'profiel'])->name('profiel')->middleware('auth');
+Route::get('/profiel/hond', [ProfielController::class, 'hond'])->name('profiel.hond')->middleware('auth');
+Route::post('/profiel/hond/toevoegen', [ProfielController::class, 'handleHond'])->name('profiel.hond-toevoegen')->middleware('auth');
+Route::put('/profiel/hond/edit', [ProfielController::class, 'editHond'])->name('profiel.hond-edit')->middleware('auth');
+Route::get('/profiel/edit', [ProfielController::class, 'edit'])->name('profiel.edit')->middleware('auth');
+Route::put('/profiel/edit/email', [ProfielController::class, 'editEmail'])->name('profiel.edit-email')->middleware('auth');
+Route::put('/profiel/edit/telefoon', [ProfielController::class, 'editPhone'])->name('profiel.edit-phone')->middleware('auth');
+Route::put('/profiel/edit/password', [ProfielController::class, 'editPassword'])->name('profiel.edit-password')->middleware('auth');
