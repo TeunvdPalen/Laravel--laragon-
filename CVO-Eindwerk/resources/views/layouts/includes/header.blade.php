@@ -2,7 +2,8 @@
 	<div class="container">
 		<div class="header-1 flex">
 			<div class="img-scale logo">
-				<a href="{{ route('home.index') }}"><img src="/assets/images/vvhtxt.jpg" alt="" class=""></a>
+				<a href="{{ route('home.index') }}"><img src="{{ asset('/images/vvhtxt.jpg') }}" alt=""
+						class=""></a>
 			</div>
 			<div class="login">
 				@guest
@@ -14,9 +15,14 @@
 						href="{{ route('logout') }}">Uitloggen</a>
 				@endauth
 			</div>
+			<div class="hamburger">
+				<span class="bar"></span>
+				<span class="bar"></span>
+				<span class="bar"></span>
+			</div>
 		</div>
 		<div class="header-2">
-			<nav class="flex">
+			<nav class="nav-menu">
 				<div>
 					<a href="{{ route('home.index') }}" class="{{ Request::is('/') ? 'active' : '' }}">
 						Home
@@ -80,6 +86,11 @@
 						<a href="{{ route('verhalen') }}">Verhalen</a>
 					</div>
 				</div>
+
+
+			</nav>
+			<nav>
+
 			</nav>
 		</div>
 	</div>

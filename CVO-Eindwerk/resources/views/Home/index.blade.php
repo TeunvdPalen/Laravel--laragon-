@@ -13,7 +13,7 @@
 					<h1 class="home-nav-title">Nieuws</h1>
 				</a>
 				<a href="{{ route('nieuws') }}" class="img-scale">
-					<img src="{{ asset('assets/images/hond_krant.jpg') }}" alt="">
+					<img src="{{ asset('/images/hond_krant.jpg') }}" alt="">
 				</a>
 			</div>
 			<div class="col-12 col-sm-6 col-md-4 col-lg-3 home-nav">
@@ -29,7 +29,7 @@
 					<h1 class="home-nav-title">Cursus</h1>
 				</a>
 				<a href="{{ route('cursus.index') }}" class="img-scale">
-					<img src="{{ asset('assets/images/cursus.jpg') }}" alt="">
+					<img src="{{ asset('/images/cursus.jpg') }}" alt="">
 				</a>
 			</div>
 			<div class="col-12 col-sm-6 col-md-4 col-lg-3 home-nav">
@@ -45,7 +45,7 @@
 					<h1 class="home-nav-title">Kalender</h1>
 				</a>
 				<a href="{{ route('kalender.index') }}" class="img-scale">
-					<img src="/assets/images/kalender.jpg" alt="">
+					<img src="{{ asset('/images/kalender.jpg') }}" alt="">
 				</a>
 			</div>
 			<div class="col-12 col-sm-6 col-md-4 col-lg-3 home-nav">
@@ -53,7 +53,7 @@
 					<h1 class="home-nav-title">Hondensport</h1>
 				</a>
 				<a href="{{ route('hondensport.index') }}" class="img-scale">
-					<img src="/assets/images/hondensport.jpg" alt="">
+					<img src="{{ asset('/images/hondensport.jpg') }}" alt="">
 				</a>
 			</div>
 			<div class="col-12 col-sm-6 col-md-4 col-lg-3 home-nav">
@@ -69,7 +69,7 @@
 					<h1 class="home-nav-title">Contact</h1>
 				</a>
 				<a href="{{ route('contact') }}" class="img-scale">
-					<img src="/assets/images/contact.jpg" alt="">
+					<img src="{{ asset('/images/contact.jpg') }}" alt="">
 				</a>
 			</div>
 		</div>

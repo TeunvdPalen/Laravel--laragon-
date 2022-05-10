@@ -4,6 +4,6 @@
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
 	<title>VVH/ @yield('title')</title>
 	<script src="https://kit.fontawesome.com/2efada7314.js" crossorigin="anonymous"></script>
-	<link rel="stylesheet" href="/assets/css/style.css">
-	<link rel="stylesheet" href="/assets/css/layouts.css">
+	<link rel="stylesheet" href="{{ asset('/css/style.css') }}">
+	<link rel="stylesheet" href="{{ asset('/css/layouts.css') }}">
 </head>
