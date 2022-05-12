@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Hond;
+use App\Models\Inschrijving;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
 use Illuminate\Support\Facades\Auth;
@@ -14,9 +15,11 @@ class ProfielController extends Controller
     {
         $user = Auth::user();
         $honds = Hond::where('user_id', $user->id)->get();
+        $inschrijving = Inschrijving::where('user_id', $user->id)->get();
         return view('profiel.index',  [
             'user' => $user,
             'honds' => $honds,
+            'inschrijving' => $inschrijving,
         ]);
     }
 

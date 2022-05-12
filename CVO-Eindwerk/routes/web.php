@@ -38,6 +38,8 @@ Route::get('/inschrijven', [InschrijvenController::class, 'index'])->name('insch
 Route::post('/inschrijven', [InschrijvenController::class, 'handleInschrijven'])->name('inschrijven.post')->middleware('auth');
 
 Route::get('/kalender', [KalenderController::class, 'index'])->name('kalender.index');
+Route::post('/kalender', [KalenderController::class, 'handleKalender'])->name('kalender.post');
+Route::DELETE('/kalender', [KalenderController::class, 'destroyKalender'])->name('kalender.destroy');
 
 Route::get('/hondensport', [HondensportController::class, 'index'])->name('hondensport.index');
 Route::get('/agility', [HondensportController::class, 'agility'])->name('agility');

@@ -1,6 +1,5 @@
-
 .container {
-    width: 100%;
+    width: 95%;
     margin: 0 auto;
 }
 
@@ -81,7 +80,7 @@
 
 @media screen and (min-width: 600px) {
     .container {
-        width: 100%;
+        width: 95%;
     }
     .col-sm-1 {
         grid-column: span 1;

@@ -13,35 +13,27 @@
 	<div>
 		<h1>Smoelenboek</h1>
 		<div class="row">
-			@for ($i = 0; $i < 20; $i++)
+			@foreach ($members as $member)
 				<div class="col-12 col-sm-12 col-md-6 col-lg-4">
 					<div class="row">
 						<div class="col-6 img-scale">
-							<img src="https://picsum.photos/300/300?random={{ $i }}" alt="">
+							<img src="{{ asset('images/' . $member->image) }}" class="member" alt="lid">
 						</div>
 						<div class="col-6">
-							@guest
-								<p>Naam</p>
-								<p>
-									Instructeur <br>
-									Gedragstherpeut
-								</p>
-							@endguest
+							<h2>{{ $member->name }}</h2>
+							<p>
+								{{ $member->function }}
+							</p>
 							@auth
-								<p>Naam</p>
-								<p>
-									Instructeur <br>
-									Gedragstherpeut
-								</p>
 								<p>
 									Tel: <br>
-									04/1234567890
+									{{ $member->phone }}
 								</p>
 							@endauth
 						</div>
 					</div>
 				</div>
-			@endfor
+			@endforeach
 			<div></div>
 		</div>
 	</div>

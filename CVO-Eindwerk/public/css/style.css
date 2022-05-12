@@ -84,6 +84,13 @@ a:active {
 .cheveron i {
     font-size: 2rem;
 }
+
+.member {
+    border-radius: 50px;
+}
+
+.aanmelden {
+}
 /* End General */
 
 /* Header */
@@ -172,7 +179,7 @@ header {
     display: none;
 }
 
-.nav-burger{
+.nav-burger {
     display: none;
     background-color: var(--yellow);
     flex-direction: column;
@@ -200,7 +207,8 @@ header {
     cursor: pointer;
 }
 
-.hamburger.hamburger.active-hamburger {}
+.hamburger.hamburger.active-hamburger {
+}
 .hamburger.active-hamburger .bar:nth-child(1) {
     transform: translateY(18px) rotate(45deg);
 }
@@ -266,6 +274,69 @@ footer {
 
 /* End profiel */
 
+/* Form */
+input {
+    margin: 0.5rem 0 1.5rem;
+    height: 1.5rem;
+    padding: 0.5rem;
+    font-size: 1.5rem;
+    border-radius: 15px;
+}
+textarea {
+    padding: 0.5rem;
+    font-size: 1.5rem;
+    border-radius: 15px;
+}
+
+input:focus,
+textarea:focus {
+    border: 5px solid var(--yellow);
+}
+
+button {
+    background-color: var(--yellow);
+    padding: 1rem 1.5rem;
+    font-weight: 700;
+    font-size: 1.5rem;
+    border-radius: 15px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: var(--yellow50);
+}
+
+select {
+    margin: 0.5rem 0 1.5rem;
+    font-size: 1.5rem;
+    border-radius: 15px;
+    padding: 0.5rem;
+    width: 100%;
+}
+/* End form */
+
+/* Kalender */
+.kalender-main {
+    margin: 3rem;
+}
+.kalender {
+    padding: 5px 1.3rem;
+    border-radius: 25px;
+}
+.kalender-kleur {
+    background-color: var(--yellow50);
+}
+.kalender-submit {
+    margin-top: 1rem;
+}
+
+.delete {
+    margin: 0;
+    padding: 0 0.5rem;
+    height: 2rem;
+    background-color: #f16b6b;
+}
+
 /* Error */
 .error {
     color: var(--error);
@@ -279,6 +350,10 @@ footer {
     .hamburger {
         padding-right: 2rem;
     }
+
+    select {
+        width: 65%;
+    }
 }
 
 @media screen and (min-width: 800px) {
@@ -288,6 +363,10 @@ footer {
 
     .hamburger {
         padding-right: 6rem;
+    }
+
+    select {
+        width: 45%;
     }
 }
 
@@ -317,6 +396,10 @@ footer {
     .subheader-nav a {
         font-size: 26px;
     }
+
+    select {
+        width: auto;
+    }
 }
 
 @media screen and (min-width: 1100px) {
@@ -328,7 +411,6 @@ footer {
         font-size: 28px;
     }
 }
-
 
 @media screen and (min-width: 1200px) {
     .nav-menu {

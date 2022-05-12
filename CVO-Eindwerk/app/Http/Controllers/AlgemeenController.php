@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Member;
 use Illuminate\Http\Request;
 
 class AlgemeenController extends Controller
@@ -18,7 +19,10 @@ class AlgemeenController extends Controller
 
     public function smoelenboek()
     {
-        return view('algemeen.smoelenboek');
+        $members = Member::all();
+        return view('algemeen.smoelenboek', [
+            'members' => $members,
+        ]);
     }
 
     public function contact()

@@ -13,7 +13,7 @@
 				<div class="col-12 col-md-6">
 					<label>
 						Roepnaam hond: <br>
-						<input type="text" name="name" value="{{ old('name') }}">
+						<input type="text" name="name" value="{{ old('name') }}" autofocus>
 						@error('name')
 							<p class="error">{{ $message }}</p>
 						@enderror

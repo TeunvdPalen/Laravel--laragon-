@@ -31,6 +31,14 @@
 				</div>
 			</div>
 		</div>
+		<h2>Jouw Cursus</h2>
+		<div class="row">
+			@foreach ($inschrijving as $item)
+				<div class="col-12 col-md-6 profiel-item">
+					<h3>{{ $item }}</h3>
+				</div>
+			@endforeach
+		</div>
 		<h2>Gegevens wijzigen</h2>
 		<div class="row">
 			<div class="col-12 col-md-6 profiel-item">

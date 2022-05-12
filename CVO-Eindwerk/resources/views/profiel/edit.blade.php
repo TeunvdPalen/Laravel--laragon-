@@ -14,7 +14,7 @@
 				<div class="col-12 col-md-6">
 					<label>
 						Email: <br>
-						<input type="email" name="email" value="{{ $user->email }}">
+						<input type="email" name="email" value="{{ $user->email }}" autofocus>
 						@error('email')
 							<p class="error">{{ $message }}</p>
 						@enderror

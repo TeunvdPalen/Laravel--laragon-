@@ -10,31 +10,31 @@ use Illuminate\Support\Facades\Auth;
 
 class InschrijvenController extends Controller
 {
-	public function index()
-	{
+    public function index()
+    {
         $user = Auth::user();
         $honds = Hond::where('user_id', $user->id)->get();
         $cursus = Cursus::all();
-		return view('inschrijven.index', [
+        return view('inschrijven.index', [
             'honds' => $honds,
             'cursus' => $cursus,
         ]);
-	}
+    }
 
-	public function handleInschrijven(Request $request)
-	{
+    public function handleInschrijven(Request $request)
+    {
         $user = Auth::user();
-		$request->validate([
-			'cursus' => 'required',
-            'hond' => 'required,'
-		]);
+        $request->validate([
+            'cursus' => 'required',
+            'hond' => 'required',
+        ]);
 
-		$inschrijving = new Inschrijving();
+        $inschrijving = new Inschrijving();
         $inschrijving->user_id = $user->id;
         $inschrijving->cursus_id = $request->cursus;
         $inschrijving->hond_id = $request->hond;
         $inschrijving->save();
 
-		return redirect()->route('home.index');
+        return redirect()->route('home.index');
     }
 }

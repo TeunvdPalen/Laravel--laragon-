@@ -11,8 +11,13 @@
 					<a href="{{ route('aanmelden') }}">Aanmelden</a>
 				@endguest
 				@auth
-					Welcome <a href="{{ route('profiel') }}">{{ Auth::user()->firstName }} <i class="fa-solid fa-user"></i></a> | <a
-						href="{{ route('logout') }}">Uitloggen</a>
+					Welcome <a href="{{ route('profiel') }}">{{ Auth::user()->firstName }}
+						@if (Auth::user()->admin == false)
+							<i class="fa-solid fa-user"></i>
+						@else
+							<i class="fa-solid fa-user-shield"></i>
+						@endif
+					</a>| <a href="{{ route('logout') }}">Uitloggen</a>
 				@endauth
 			</div>
 			<div class="hamburger">

@@ -20,7 +20,7 @@
 					<h1 class="home-nav-title">Algemeen</h1>
 				</a>
 				<a href="{{ route('algemeen.index') }}" class="img-scale">
-					<img src="https://picsum.photos/300/300?random=2" alt="">
+					<img src="{{ asset('/images/algemeen.jpg') }}" alt="">
 				</a>
 			</div>
 			<div class="col-12 col-sm-6 col-md-4 col-lg-3 home-nav">
@@ -36,7 +36,7 @@
 					<h1 class="home-nav-title">Inschrijven</h1>
 				</a>
 				<a href="{{ route('inschrijven.index') }}" class="img-scale">
-					<img src="https://picsum.photos/300/300?random=4" alt="">
+					<img src="{{ asset('/images/inschrijven2.jpg') }}" alt="">
 				</a>
 			</div>
 			<div class="col-12 col-sm-6 col-md-4 col-lg-3 home-nav">
@@ -60,7 +60,7 @@
 					<h1 class="home-nav-title">Maat-<br>schappelijk</h1>
 				</a>
 				<a href="{{ route('maatschappelijk.index') }}" class="img-scale">
-					<img src="https://picsum.photos/300/300?random=7" alt="">
+					<img src="{{ asset('/images/maatschappelijk.jpg') }}" alt="">
 				</a>
 			</div>
 			<div class="col-12 col-sm-6 col-md-4 col-lg-3 home-nav">

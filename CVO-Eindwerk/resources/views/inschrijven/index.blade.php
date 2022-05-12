@@ -14,11 +14,11 @@
 			<div class="row">
 				<div class="col-12 col-md-6">
 					<label>
-						Ik meld mij aan voor cursus: <br>
-						<select name="cursus">
-							<option value="">Selecteer een cursu</option>
+						Selecteer welke cursus u wilt volgen: <br>
+						<select name="cursus" autofocus>
+							<option value="">Selecteer een cursus</option>
 							@foreach ($cursus as $item)
-								<option value="{{ $item->id }}">{{ $item->name }}</option>
+								<option value="{{ $item->id }}" @selected(old('cursus') == $item->id)>{{ $item->name }}</option>
 							@endforeach
 						</select>
 						@error('cursus')
@@ -27,18 +27,24 @@
 					</label>
 				</div>
 				<div class="col-12 col-md-6">
-					<label>
-						Ik meld mij aan voor cursus: <br>
-						<select name="hond">
-							<option value="">Selecteer een hond</option>
-							@foreach ($honds as $hond)
-								<option value="{{ $hond->id }}">{{ $hond->name }}</option>
-							@endforeach
-						</select>
-						@error('hond')
-							<p class="error">{{ $message }}</p>
-						@enderror
-					</label>
+					@if (count($honds) == 0)
+						<p>U heeft nog geen hond gelinked aan uw account</p>
+						<p>klik <a href="{{ route('profiel.hond') }}"><b>Hier</b></a></p>
+					@else
+						<label>
+							Selecteer uw hond die de cursus zla volgen: <br>
+							<select name="hond">
+								<option value="">Selecteer een hond</option>
+								@foreach ($honds as $hond)
+									<option value="{{ $hond->id }}" @selected(old('hond') == $hond->id)>{{ $hond->name }}</option>
+								@endforeach
+							</select>
+							@error('hond')
+								<p class="error">{{ $message }}</p>
+							@enderror
+						</label>
+					@endif
+
 				</div>
 				<div class="col-12 col-md-6">
 					<div>
